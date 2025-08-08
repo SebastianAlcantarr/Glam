@@ -3,61 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glam Nails Studio - Tu espacio de belleza y cuidado de uñas">
+    <title>Glam Nails Studio - Citas</title>
+
+    <icon href="https://glamnailshmo.com/favicon.png" type="image/x-icon"></icon>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Glam Nails Studio</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css ">
-
-
 </head>
 <body>
-    <header>
-        <h1>Glam Nails Studios</h1>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+             
+                <h1>Glam Nails <span>Studio</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Galería</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section class="form-section">
-            <h2>Agregar Cita</h2>
-            <form id="appointmentForm">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
 
-                <label for="estado">Hora Inicial de su cita:</label>
-                <input id="timepicker" type="text" placeholder="Selecciona hora">
+    <main class="main-content">
+        <div class="container">
+            <section class="hero">
+                <h2>Belleza en tus manos</h2>
+            </section>
 
-                <label for="estado">Estado:</label>
-                <select id="estado" name="estado" required>
-                    <option value="disponible">Disponible</option>
-                    <option value="no disponible">No Disponible</option>
-                </select>
+            <div class="content-wrapper">
+                <section class="form-section card">
+                    <h2><i class="far fa-calendar-plus"></i> Agendar Cita</h2>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <div class="input-with-icon">
+                                <i class="far fa-user"></i>
+                                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                            </div>
+                        </div>
 
-                <button type="submit">Agregar Cita</button>
-            </form>
-        </section>
-        <section class="list-section">
-            <h2>Lista de Citas</h2>
-            <table id="appointmentsTable">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Hora de Inicio</th>
-                        <th>Hora Final</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
+                        <div class="form-group">
+                            <label for="timepicker">Hora de la cita</label>
+                            <div class="input-with-icon">
+                                <i class="far fa-clock"></i>
+                                <input id="timepicker" type="text" placeholder="Selecciona hora">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">Estado de disponibilidad</label>
+                            <div class="select-wrapper">
+                                <i class="fas fa-info-circle"></i>
+                                <select id="estado" name="estado" required>
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                    <option value="disponible">Disponible</option>
+                                    <option value="no disponible">No Disponible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i> Agendar Cita
+                        </button>
+                    </form>
+                </section>
+
+                <section class="list-section card">
+                    <div class="section-header">
+                        <h2><i class="far fa-list-alt"></i> Citas Programadas</h2>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchAppointment" placeholder="Buscar cita...">
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table id="appointmentsTable">
+                            <thead>
+                                <tr>
+                                    <th><i class="far fa-user"></i> Nombre</th>
+                                    <th><i class="far fa-clock"></i> Inicio</th>
+                                    <th><i class="far fa-clock"></i> Fin</th>
+                                    <th><i class="fas fa-tag"></i> Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Las citas se agregarán aquí dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p>2025 Glam Nails</p>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glam Nails Studio</h3>
+                    <p>Redes sociales y contactos</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/glamnails.hmo"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/message/QEA3FVLI32SXP1?autoload"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <p>Lun-Sab: 8:00 AM - 8:00 PM</p>
+                    <p>Domingo: Cerrado</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-phone"></i> 📞 Tel. (662) 256 3268</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 📍 Placita 779, Saturnino Campoy </p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glam Nails Studio.</p>
+            </div>
+        </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
-
-<script src="/static/js/script.js"></script>
-
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
