@@ -1,8 +1,8 @@
 /* Modern Nail Salon Design System */
 :root {
     /* Color Palette */
-    --primary: #5a3812;
-    --primary-light: #ff8fab;
+    --primary: rgba(111, 55, 16, 0.65);
+    --primary-light: #a75b74;
     --primary-dark: #b6611b;
     --secondary: #a5a6f6;
     --accent: #ffd166;
@@ -10,25 +10,25 @@
     --dark: #343a40;
     --gray: #6c757d;
     --light-gray: #c8cfd6;
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    
+
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    
+
     /* Transitions */
     --transition: all 0.3s ease;
 }
@@ -92,7 +92,7 @@ img {
 
 /* Header */
 .main-header {
-    background: white;
+    background: #e9dddd;
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
@@ -159,7 +159,7 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(255, 107, 139, 0.1), rgba(165, 166, 246, 0.1));
+    background: linear-gradient(135deg, rgba(153, 104, 26, 0.65), rgb(219, 180, 140));
     padding: var(--spacing-xl) 0;
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -467,7 +467,7 @@ tr:hover {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+
     .hero h2 {
         font-size: 2.5rem;
     }
@@ -478,21 +478,21 @@ tr:hover {
         flex-direction: column;
         gap: var(--spacing-md);
     }
-    
+
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .hero h2 {
         font-size: 2rem;
     }
-    
+
     .section-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .search-box {
         width: 100%;
     }
@@ -503,11 +503,11 @@ tr:hover {
     .list-section {
         padding: var(--spacing-md);
     }
-    
+
     th, td {
         padding: 12px 8px;
     }
-    
+
     .btn {
         padding: 10px 20px;
     }
