@@ -1,6 +1,6 @@
 :root {
     /* Color Palette */
-    --primary: rgba(203, 111, 49, 0.65);
+    --primary: rgb(185, 113, 68);
     --primary-light: #a75b74;
     --primary-dark: #b6611b;
     --secondary: #a5a6f6;
@@ -11,7 +11,7 @@
     --light-gray: #c8cfd6;
 
     /* Spacing */
-    --spacing-xs: 0.5rem;
+    --spacing-xs: 1rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
@@ -53,7 +53,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
 }
@@ -159,9 +159,10 @@ nav a.active::after {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, rgba(233, 227, 216, 0.65), rgb(231, 214, 195));
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) 0.1px;
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xs);
+    margin-top:var(--spacing-xs);
     border-radius: var(--radius-lg);
 }
 
