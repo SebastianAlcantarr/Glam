@@ -1,7 +1,6 @@
-/* Modern Nail Salon Design System */
 :root {
     /* Color Palette */
-    --primary: rgba(111, 55, 16, 0.65);
+    --primary: rgba(203, 111, 49, 0.65);
     --primary-light: #a75b74;
     --primary-dark: #b6611b;
     --secondary: #a5a6f6;
@@ -159,7 +158,7 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(153, 104, 26, 0.65), rgb(219, 180, 140));
+    background: linear-gradient(135deg, rgba(233, 227, 216, 0.65), rgb(231, 214, 195));
     padding: var(--spacing-xl) 0;
     text-align: center;
     margin-bottom: var(--spacing-xl);
