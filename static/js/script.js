@@ -1,4 +1,5 @@
-        // script.js
+// script.js
+
 const appointmentForm = document.getElementById('appointmentForm');
 const appointmentsTableBody = document.querySelector('#appointmentsTable tbody');
 const API_URL = 'http://127.0.0.1:8000/api/citas';
@@ -6,58 +7,58 @@ const API_URL = 'http://127.0.0.1:8000/api/citas';
 // Cargar citas al iniciar
 document.addEventListener('DOMContentLoaded', cargarCitas);
 
-
 // Manejar el envío del formulario
 appointmentForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const nombre = document.getElementById('nombre').value.trim();
-    const hora_inicio = document.getElementById('timepicker').value; // Cambiado aquí
+    const hora_inicio = document.getElementById('timepicker').value;
     const estado = document.getElementById('estado').value;
 
     if (!nombre || !hora_inicio) {
         alert('Por favor, complete todos los campos.');
         return;
     }
-    hora_i=hora_inicio.replace('/AM|PM/i'," ")
+
+    // Remueve AM/PM no es necesario si usarás la función sumarUnaHora tal cual
+    // let hora_i = hora_inicio.replace('/AM|PM/i', " ");
 
     function sumarUnaHora(horaStr) {
-  // Extraer AM o PM
-  let ampm = horaStr.match(/AM|PM/i);
+        // Extraer AM o PM
+        let ampm = horaStr.match(/AM|PM/i);
+        ampm = ampm ? ampm[0].toUpperCase() : null;
 
-  ampm = ampm[0].toUpperCase();
+        // Quitar AM/PM y espacios
+        let horaSinAmPm = horaStr.replace(/(AM|PM)/i, '').trim();
 
-  // Quitar AM/PM y espacios
-  let horaSinAmPm = horaStr.replace(/(AM|PM)/i, '').trim();
+        // Separar horas y minutos
+        let [horas, minutos] = horaSinAmPm.split(':').map(Number);
 
-  // Separar horas y minutos
-  let [horas, minutos] = horaSinAmPm.split(':').map(Number);
+        if (isNaN(horas) || isNaN(minutos)) throw new Error("Formato inválido de hora");
 
-  if (isNaN(horas) || isNaN(minutos)) throw new Error("Formato inválido de hora");
+        // Convertir a 24 horas para facilitar la suma
+        if (ampm === 'PM' && horas < 12) {
+            horas += 12;
+        } else if (ampm === 'AM' && horas === 12) {
+            horas = 0;
+        }
 
-  // Convertir a 24 horas para facilitar la suma
-  if (ampm === 'PM' && horas < 12) {
-    horas += 12;
-  } else if (ampm === 'AM' && horas === 12) {
-    horas = 0;
-  }
+        // Sumar 1 hora
+        horas = (horas + 1) % 24;
 
-  // Sumar 1 hora
-  horas = (horas + 1) % 24;
+        // Convertir de nuevo a formato 12 horas
+        let nuevaAmPm = horas >= 12 ? 'PM' : 'AM';
+        let horas12 = horas % 12;
+        if (horas12 === 0) horas12 = 12;
 
-  // Convertir de nuevo a formato 12 horas
-  let nuevaAmPm = horas >= 12 ? 'PM' : 'AM';
-  let horas12 = horas % 12;
-  if (horas12 === 0) horas12 = 12;
+        // Formatear con dos dígitos los minutos
+        let minutosStr = minutos.toString().padStart(2, '0');
 
-  // Formatear con dos dígitos los minutos
-  let minutosStr = minutos.toString().padStart(2, '0');
+        // Construir el string final
+        return `${horas12}:${minutosStr} ${nuevaAmPm}`;
+    }
 
-  // Construir el string final
-  return `${horas12}:${minutosStr} ${nuevaAmPm}`;
-}
-
-    let hora_final = sumarUnaHora(hora_i)
+    let hora_final = sumarUnaHora(hora_inicio);
 
     try {
         const response = await fetch(API_URL, {
@@ -84,8 +85,6 @@ appointmentForm.addEventListener('submit', async function(e) {
         alert(error.message || 'Error al procesar la solicitud');
     }
 });
-
-
 
 async function cargarCitas() {
     try {
@@ -125,3 +124,24 @@ function renderCitas(citas) {
         appointmentsTableBody.appendChild(tr);
     });
 }
+
+
+// Configuración de flatpickr (deja esta parte en un script separado o dentro del HTML)
+// Si quieres usarla aquí, deberías cargar flatpickr primero en tu HTML antes de este script
+flatpickr("#timepicker", {
+    locale: 'es',
+    minDate: "today",
+    enableTime: true,
+    noCalendar: false,
+    dateFormat: "h:i K",
+    time_24hr: false,
+    minTime: "09:00",
+    maxTime: "18:00",
+    minuteIncrement: 30,
+    disable: [
+        function (date) {
+            // Deshabilitar domingos
+            return date.getDay() === 0;
+        }
+    ]
+});

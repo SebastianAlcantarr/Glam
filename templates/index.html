@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Glam Nails Studio</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css ">
+
+
+</head>
+<body>
+    <header>
+        <h1>Glam Nails Studios</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Agregar Cita</h2>
+            <form id="appointmentForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="estado">Hora Inicial de su cita:</label>
+                <input id="timepicker" type="text" placeholder="Selecciona hora">
+
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado" required>
+                    <option value="disponible">Disponible</option>
+                    <option value="no disponible">No Disponible</option>
+                </select>
+
+                <button type="submit">Agregar Cita</button>
+            </form>
+        </section>
+        <section class="list-section">
+            <h2>Lista de Citas</h2>
+            <table id="appointmentsTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Hora de Inicio</th>
+                        <th>Hora Final</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>2025 Glam Nails</p>
+    </footer>
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>

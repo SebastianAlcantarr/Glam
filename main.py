@@ -5,12 +5,20 @@ from fastapi.requests import Request
 from fastapi.templating import  Jinja2Templates
 from pydantic import BaseModel
 from typing import List
-import sqlite3
+import psycopg2
+import psycopg2.extras
+from starlette.staticfiles import StaticFiles
+
 
 def get_db_connection():
-    conn = sqlite3.connect('identifier.sqlite')
-    conn.row_factory = sqlite3.Row
-    return conn
+        conn = psycopg2.connect(
+            host="dpg-d28p0s0gjchc73bueorg-a.oregon-postgres.render.com",
+            database="glaim_nails",
+            user="sebas",
+            password="BSGWtTrUqdgPAQeFyLe56OHEf1DiLQ9B",
+
+        )
+        return conn
 
 app = FastAPI()
 
@@ -23,9 +31,10 @@ app.add_middleware(
 )
 
 
-templates = Jinja2Templates(directory="proyecto/templates")
+templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Modelo Pydantic para validación del POST
+
 class Cita(BaseModel):
     nombre: str
     hora_inicio: str
@@ -41,9 +50,16 @@ async def index(request: Request):
 
 # API para obtener todas las citas
 @app.get("/api/citas", response_model=List[Cita])
-async def get_citas():
+def get_citas():
     conn = get_db_connection()
-    citas = conn.execute('SELECT * FROM citass').fetchall()
+    cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+    cursor.execute('SELECT * FROM citass')
+    citas = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
     result = []
     for cita in citas:
         result.append({
@@ -53,6 +69,7 @@ async def get_citas():
             'estado': cita['estado'],
         })
     return result
+
 
 
 # API para agregar nueva cita
@@ -65,7 +82,7 @@ async def add_cita(cita: Cita):
     try:
         cursor = conn.cursor()
         cursor.execute(
-            'INSERT INTO citass (nombre, hora_inicio, hora_final, estado) VALUES (?, ?, ?, ?)',
+            'INSERT INTO citass (nombre, hora_inicio, hora_final, estado) VALUES (%s, %s, %s, %s)',
             (cita.nombre, cita.hora_inicio, cita.hora_final, cita.estado)
         )
         conn.commit()
