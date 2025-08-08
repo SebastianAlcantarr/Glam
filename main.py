@@ -22,13 +22,6 @@ def get_db_connection():
 
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://127.0.0.1:8000"],  # Cambia según el puerto que uses para frontend
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 templates = Jinja2Templates(directory="templates")
