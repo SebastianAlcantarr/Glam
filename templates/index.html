@@ -9,7 +9,8 @@
     <icon href="https://glamnailshmo.com/favicon.png" type="image/x-icon"></icon>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,127 +22,196 @@
     <link rel="stylesheet" href="/staticc/css/styles.css">
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
+<header class="main-header">
+    <div class="container">
+        <div class="logo">
 
-                <h1>Glam Nails <span>Studio</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Galería</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-            </nav>
+            <h1>Glam Nails <span>Studio</span></h1>
         </div>
-    </header>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Galería</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="hero">
-                <h2>INFORMACION EXTRA /IMAGENES</h2>
+<main class="main-content">
+    <div class="container">
+        <section class="hero">
+            <h2>INFORMACION EXTRA /IMAGENES
+                <img src="https://glamnailshmo.com/457036365_122096117474504319_3370780701138808009_n.png"
+                     alt="fotoglam" style="width: 950px;height:auto">
+            </h2>
+        </section>
+
+
+       <!--Agendar la citas -->
+        <div class="content-wrapper">
+            <section class="form-section card">
+                <h2><i class="far fa-calendar-plus"></i>Agendar Cita</h2>
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-user"></i>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timepicker">Hora de la cita</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-clock"></i>
+                            <input id="timepicker" type="text" placeholder="Selecciona hora">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Escoge el tipo de cita </label>
+                        <div class="select-wrapper">
+                            <i class="fas fa-info-circle"></i>
+                            <select id="estado" name="estado"  onchange="mostrarManicure()">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="aplicacion">Aplicacion de uñas</option>
+                                <option value="Manicure">Manicure</option>
+                                <option value="Pedicure">Pedicure</option>
+                                <option value="Retiro">Retiro</option>
+                            </select>
+                        </div>
+                    </div>
+<!-- Escoger de manicure -->
+
+                    <div class="form-group" id="manicure" style="display:none;">
+                        <label for="estadoM">Escoge el manicure </label>
+                        <div class="select-wrapper">
+                            <i class="fas fa-info-circle"></i>
+                            <select id="estadoM" name="estado1" >
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Manicure super glam">Manicure super glam</option>
+                                <option value="Manicure spa sencillo">Manicure spa sencillo</option>
+                            </select>
+                        </div>
+                    </div>
+<!-- Escoger de pedicure -->
+
+                    <div class="form-group" id="pedicure" style="display:none;">
+                        <label for="estadoP">Escoge el pedicure </label>
+                        <div class="select-wrapper">
+                            <i class="fas fa-info-circle"></i>
+                            <select id="estadoP" name="estado1" >
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Manicure super glam">Pedicure super glam</option>
+                                <option value="Manicure spa sencillo">Pedicure sencillo</option>
+                            </select>
+                        </div>
+                    </div>
+
+<!-- Escoger de retiro -->
+
+                    <div class="form-group" id="retiro" style="display:none;">
+                        <label for="estadoR">Escoge el retiro</label>
+                        <div class="select-wrapper">
+                            <i class="fas fa-info-circle"></i>
+                            <select id="estadoR" name="estado1" >
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Manicure super glam">Retiro de acrilico con aplicacion nueva</option>
+                                <option value="Manicure spa sencillo">Retiro de acrilico sin aplicacion nueva</option>
+                            </select>
+                        </div>
+                    </div>
+
+<!-- Escoger de apliccacion -->
+
+                    <div class="form-group" id="aplicacion" style="display:none;">
+    <label for="estadoA">Escoge la aplicación</label>
+    <div class="select-wrapper">
+        <i class="fas fa-info-circle"></i>
+        <select id="estadoA" name="estado1" >
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="uñas-esculturales-cortas">Uñas esculturales cortas lisas</option>
+            <option value="uñas-esculturales-medianas">Uñas esculturales medianas lisas</option>
+            <option value="uñas-esculturales-largas">Uñas esculturales largas lisas</option>
+            <option value="uñas-esculturales-extra-largas">Uñas esculturales extra largas lisas</option>
+            <option value="baño-acrilico">Baño de acrílico liso (cambio de forma $20, por uña nueva $15)</option>
+            <option value="gel-color">Gel Color</option>
+            <option value="gel-calcio">Gel Calcio</option>
+        </select>
+    </div>
+</div>
+
+
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i> Agendar Cita
+                    </button>
+                </form>
             </section>
 
-            <div class="content-wrapper">
-                <section class="form-section card">
-                    <h2><i class="far fa-calendar-plus"></i> Agendar Cita</h2>
-                    <form id="appointmentForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <div class="input-with-icon">
-                                <i class="far fa-user"></i>
-                                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="timepicker">Hora de la cita</label>
-                            <div class="input-with-icon">
-                                <i class="far fa-clock"></i>
-                                <input id="timepicker" type="text" placeholder="Selecciona hora">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="estado">Estado de disponibilidad</label>
-                            <div class="select-wrapper">
-                                <i class="fas fa-info-circle"></i>
-                                <select id="estado" name="estado" required>
-                                    <option value="" disabled selected>Selecciona una opción</option>
-                                    <option value="disponible">Disponible</option>
-                                    <option value="no disponible">No Disponible</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-calendar-check"></i> Agendar Cita
-                        </button>
-                    </form>
-                </section>
-
-                <section class="list-section card">
-                    <div class="section-header">
-                        <h2><i class="far fa-list-alt"></i> Citas Programadas</h2>
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" id="searchAppointment" placeholder="Buscar cita...">
-                        </div>
+            <section class="list-section card">
+                <div class="section-header">
+                    <h2><i class="far fa-list-alt"></i> Citas Programadas</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchAppointment" placeholder="Buscar cita...">
                     </div>
+                </div>
 
-                    <div class="table-responsive">
-                        <table id="appointmentsTable">
-                            <thead>
-                                <tr>
-                                    <th><i class="far fa-user"></i> Nombre</th>
-                                    <th><i class="far fa-clock"></i> Inicio</th>
-                                    <th><i class="far fa-clock"></i> Fin</th>
-                                    <th><i class="fas fa-tag"></i> Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Las citas se agregarán aquí dinámicamente -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
+                <div class="table-responsive">
+                    <table id="appointmentsTable">
+                        <thead>
+                        <tr>
+                            <th><i class="far fa-user"></i> Nombre</th>
+                            <th><i class="far fa-clock"></i> Inicio</th>
+                            <th><i class="far fa-clock"></i> Fin</th>
+                            <th><i class="fas fa-tag"></i> Tipo de Cita</th>
+                            <th><i class="fas fa-tag"></i> Detalles de la cita</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Las citas se agregarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Glam Nails Studio</h3>
-                    <p>Redes sociales y contactos</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/glamnails.hmo"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/message/QEA3FVLI32SXP1?autoload"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Glam Nails Studio</h3>
+                <p>Redes sociales y contactos</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/glamnails.hmo"><i class="fab fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/message/QEA3FVLI32SXP1?autoload"><i
+                            class="fab fa-whatsapp"></i></a>
                 </div>
-                <div class="footer-section">
-                    <h3>Horario</h3>
-                    <p>Lun-Sab: 8:00 AM - 8:00 PM</p>
-                    <p>Domingo: Cerrado</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-phone"></i>Tel. (662) 256 3268</p>
-                    <p><i class="fas fa-map-marker-alt"></i>Placita 779, Saturnino Campoy </p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario</h3>
+                <p>Lun-Sab: 8:00 AM - 8:00 PM</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i>Tel. (662) 256 3268</p>
+                <p><i class="fas fa-map-marker-alt"></i>Placita 779, Saturnino Campoy </p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Glam Nails Studio.</p>
             </div>
         </div>
-            </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
-    <script src="/staticc/js/script.js"></script>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+<script src="/staticc/js/script.js"></script>
 </body>
 </html>

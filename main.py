@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 from fastapi.requests import Request
 from fastapi.templating import  Jinja2Templates
@@ -32,7 +31,8 @@ class Cita(BaseModel):
     nombre: str
     hora_inicio: str
     hora_final: str
-    estado: str
+    tipo_cita: str
+    cita_detallada:str
 
 
 # Ruta para servir el frontend (HTML)
@@ -52,17 +52,16 @@ def get_citas():
 
     cursor.close()
     conn.close()
-
     result = []
     for cita in citas:
         result.append({
             'nombre': cita['nombre'],
             'hora_inicio': str(cita['hora_inicio']),
             'hora_final': str(cita['hora_final']),
-            'estado': cita['estado'],
+            'tipo_cita': str(cita['tipo_cita']),
+            'cita_detallada': str(cita['cita_detallada']),
         })
     return result
-
 
 
 # API para agregar nueva cita
@@ -75,8 +74,8 @@ async def add_cita(cita: Cita):
     try:
         cursor = conn.cursor()
         cursor.execute(
-            'INSERT INTO citass (nombre, hora_inicio, hora_final, estado) VALUES (%s, %s, %s, %s)',
-            (cita.nombre, cita.hora_inicio, cita.hora_final, cita.estado)
+            'INSERT INTO citass (nombre, hora_inicio, hora_final, tipo_cita,cita_detallada) VALUES (%s, %s, %s, %s,%s)',
+            (cita.nombre, cita.hora_inicio, cita.hora_final, cita.tipo_cita,cita.cita_detallada)
         )
         conn.commit()
         return {"message": "Cita agregada correctamente", "id": cursor.lastrowid}
