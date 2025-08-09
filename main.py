@@ -40,6 +40,10 @@ class Cita(BaseModel):
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/galeria",response_class=HTMLResponse)
+async def galeria(request: Request):
+    return templates.TemplateResponse("galeria.html", {"request": request})
+
 
 # API para obtener todas las citas
 @app.get("/api/citas", response_model=List[Cita])

@@ -1,6 +1,6 @@
 const appointmentForm = document.getElementById('appointmentForm');
 const appointmentsTableBody = document.querySelector('#appointmentsTable tbody');
-const API_URL = 'https://glam-orjb.onrender.com/api/citas';
+const API_URL = 'http://127.0.0.1:8000/api/citas';
 
 
 // Cargar citas al iniciar
