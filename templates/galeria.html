@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería de trabajos - Glam Nails Studio">
+    <title>Galería - Glam Nails Studio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/staticc/css/styles.css">
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Glam Nails <span>Studio</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#" class="active">Galería</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <div class="gallery-header">
+            <h1>Nuestros Trabajos</h1>
+            <p>Inspírate con nuestros diseños exclusivos</p>
+        </div>
+        
+        <div class="gallery-categories">
+            <button class="category-btn active" data-category="all">Todos</button>
+            <button class="category-btn" data-category="esculpidas">Uñas Esculpidas</button>
+            <button class="category-btn" data-category="semipermanente">Semipermanente</button>
+            <button class="category-btn" data-category="diseños">Diseños Especiales</button>
+        </div>
+        
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be dynamically loaded here -->
+            <div class="gallery-item" data-category="esculpidas">
+                <img src="https://via.placeholder.com/400x400/e8d9c1/7d5c36?text=Uñas+Esculpidas+1" alt="Uñas Esculpidas">
+                <div class="gallery-caption">
+                    <h3>Uñas Esculpidas</h3>
+                    <p>Diseño clásico francés</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="semipermanente">
+                <img src="https://via.placeholder.com/400x400/bfa980/ffffff?text=Semipermanente+1" alt="Semipermanente">
+                <div class="gallery-caption">
+                    <h3>Semipermanente</h3>
+                    <p>Color rojo intenso</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="diseños">
+                <img src="https://via.placeholder.com/400x400/d9b99b/7d5c36?text=Diseño+Especial+1" alt="Diseño Especial">
+                <div class="gallery-caption">
+                    <h3>Diseño Especial</h3>
+                    <p>Flores y dorado</p>
+                </div>
+            </div>
+            
+            <!-- Add more gallery items as needed -->
+            <div class="gallery-item" data-category="esculpidas">
+                <img src="https://via.placeholder.com/400x400/e8d9c1/7d5c36?text=Uñas+Esculpidas+2" alt="Uñas Esculpidas">
+                <div class="gallery-caption">
+                    <h3>Uñas Esculpidas</h3>
+                    <p>Diseño natural</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="semipermanente">
+                <img src="https://via.placeholder.com/400x400/bfa980/ffffff?text=Semipermanente+2" alt="Semipermanente">
+                <div class="gallery-caption">
+                    <h3>Semipermanente</h3>
+                    <p>Color rosa palo</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="diseños">
+                <img src="https://via.placeholder.com/400x400/d9b99b/7d5c36?text=Diseño+Especial+2" alt="Diseño Especial">
+                <div class="gallery-caption">
+                    <h3>Diseño Especial</h3>
+                    <p>Geometría moderna</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glam Nails Studio</h3>
+                    <p>Redes sociales y contactos</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/glamnails.hmo"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/message/QEA3FVLI32SXP1?autoload"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Horario</h3>
+                    <p>Lun-Sab: 8:00 AM - 8:00 PM</p>
+                    <p>Domingo: Cerrado</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple gallery filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.category-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filterValue = button.getAttribute('data-category');
+                    
+                    // Filter items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
