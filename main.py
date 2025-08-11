@@ -24,6 +24,7 @@ app = FastAPI()
 
 
 templates = Jinja2Templates(directory="templates")
+
 app.mount("/staticc", StaticFiles(directory="staticc"), name="staticc")
 
 

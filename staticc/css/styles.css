@@ -1,7 +1,7 @@
 :root {
     /* Color Palette */
-    --primary: rgb(185, 113, 68);
-    --primary-light: #a75b74;
+    --primary: rgb(178, 145, 142);
+    --primary-light: #bf97a2;
     --primary-dark: #b6611b;
     --secondary: #a5a6f6;
     --accent: #ffd166;
@@ -47,7 +47,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--dark);
-    background-color: #a19499;
+    background-color: #e9e1e5;
     overflow-x: hidden;
 }
 
@@ -160,7 +160,7 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-    background: rgb(240, 232, 227);
+    background: rgb(247, 247, 243);
     padding: var(--spacing-xl) 0.1px;
     text-align: center;
     margin-bottom: var(--spacing-xs);
@@ -257,7 +257,6 @@ nav a.active::after {
 
 .select-wrapper select {
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 1em;
@@ -547,6 +546,8 @@ tr:hover {
 }
 
 
+
+
 .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -560,6 +561,7 @@ tr:hover {
 
         .gallery-header h1 {
             font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
@@ -623,6 +625,6 @@ tr:hover {
         }
 
         .category-btn:hover, .category-btn.active {
-            color: white;
+            color: rgba(246, 165, 165, 0);
         }
 
