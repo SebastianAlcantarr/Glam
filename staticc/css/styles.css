@@ -4,7 +4,6 @@
     --primary-light: #bf97a2;
     --primary-dark: #b6611b;
     --secondary: #a5a6f6;
-    --accent: #ffd166;
     --light: #f8f9fa;
     --dark: #343a40;
     --gray: #6c757d;
@@ -74,7 +73,7 @@ a {
 }
 
 a:hover {
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 
 img {
@@ -92,7 +91,7 @@ img {
 
 /* Header */
 .main-header {
-    background: #e9dddd;
+    background: #ffffff;
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
@@ -160,7 +159,7 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-    background: rgb(247, 247, 243);
+    background: rgb(240, 233, 233);
     padding: var(--spacing-xl) 0.1px;
     text-align: center;
     margin-bottom: var(--spacing-xs);
@@ -298,7 +297,7 @@ nav a.active::after {
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
+    background: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
 }
@@ -371,7 +370,7 @@ th {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.8rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 th i {
@@ -542,7 +541,7 @@ tr:hover {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark);
+    background: var(--primary);
 }
 
 

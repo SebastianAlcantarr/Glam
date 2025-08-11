@@ -27,7 +27,6 @@ templates = Jinja2Templates(directory="templates")
 
 app.mount("/staticc", StaticFiles(directory="staticc"), name="staticc")
 
-
 class Cita(BaseModel):
     nombre: str
     hora_inicio: str
