@@ -35,14 +35,18 @@ class Cita(BaseModel):
     cita_detallada:str
 
 
-# Ruta para servir el frontend (HTML)
+#Rutas para mandar los html
+
+#Ruta principal
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+#Ruta para la galeria
 @app.get("/galeria",response_class=HTMLResponse)
 async def galeria(request: Request):
     return templates.TemplateResponse("galeria.html", {"request": request})
+#Ruta para los servicios disponibles
 @app.get('/servicios',status_code=201)
 async def servicios(request: Request):
     return templates.TemplateResponse("servicios.html", {"request": request})
