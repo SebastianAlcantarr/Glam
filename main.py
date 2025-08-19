@@ -43,6 +43,12 @@ async def index(request: Request):
 @app.get("/galeria",response_class=HTMLResponse)
 async def galeria(request: Request):
     return templates.TemplateResponse("galeria.html", {"request": request})
+@app.get('/servicios',status_code=201)
+async def servicios(request: Request):
+    return templates.TemplateResponse("servicios.html", {"request": request})
+
+
+
 
 
 # API para obtener todas las citas
@@ -87,7 +93,6 @@ async def add_cita(cita: Cita):
         raise HTTPException(status_code=500, detail=str(e))
     finally:
         conn.close()
-
 
 if __name__ == "__main__":
     import uvicorn

@@ -24,9 +24,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/servicios">Servicios</a></li>
-                    <li><a href="#" class="active">Galería</a></li>
+                    <li><a href="/z">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="/galeria" class="active">Galería</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,17 +34,17 @@
 
     <main class="gallery-container">
         <div class="gallery-header">
-            <h1>Nuestros Trabajos</h1>
+            <h1>Nuestros Servicios Disponibles</h1>
             <p>CREAMOS TUS DISEÑOS FAVORITOS A TU GUSTO</p>
         </div>
-        
+
         <div class="gallery-categories">
             <button class="category-btn active" data-category="all">Todos</button>
             <button class="category-btn" data-category="Uñas1">Uñas 1</button>
             <button class="category-btn" data-category="Uñas2">Uñas 2</button>
             <button class="category-btn" data-category="Uñas3">Uñas 3</button>
         </div>
-        
+
         <div class="gallery-grid" id="galleryGrid">
             <!-- Gallery items will be dynamically loaded here -->
             <div class="gallery-item" data-category="Uñas1">
@@ -54,7 +54,7 @@
                     <p>Diseño</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category=Uñas1">
                 <img src="   " alt="Uñas">
                 <div class="gallery-caption">
@@ -62,7 +62,7 @@
                     <p>Diseño</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="Uñas2">
                 <img src="   " alt="Uñas">
                 <div class="gallery-caption">
@@ -70,7 +70,7 @@
                     <p>Diseño</p>
                 </div>
             </div>
-            
+
             <!-- Add more gallery items as needed -->
             <div class="gallery-item" data-category="Uñas1">
                 <img src="   " alt="Uñas">
@@ -79,7 +79,7 @@
                     <p>Diseño</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="Uñas3">
                 <img src=" " alt="Uñas">
                 <div class="gallery-caption">
@@ -87,7 +87,7 @@
                     <p>Diseño</p>
                 </div>
             </div>
-            
+
             <div class="gallery-item" data-category="Uñas3">
                 <img src="  " alt="Uñas">
                 <div class="gallery-caption">
@@ -126,22 +126,20 @@
         </div>
     </div>
 </footer>
-
-
     <script>
         // Simple gallery filtering
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.category-btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
-            
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     // Update active button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-                    
+
                     const filterValue = button.getAttribute('data-category');
-                    
+
                     // Filter items
                     galleryItems.forEach(item => {
                         if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {

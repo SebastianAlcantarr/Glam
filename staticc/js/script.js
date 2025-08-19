@@ -2,6 +2,8 @@ const appointmentForm = document.getElementById('appointmentForm');
 const appointmentsTableBody = document.querySelector('#appointmentsTable tbody');
 const API_URL = 'https://glam-orjb.onrender.com/api/citas';
 
+
+// Cargar todas las citas
 document.addEventListener('DOMContentLoaded', cargarCitas);
 
 // Enviar cita
@@ -12,29 +14,29 @@ appointmentForm.addEventListener('submit', async function(e) {
     const hora_inicio = document.getElementById('timepicker').value;
     const tipo_cita = document.getElementById('estado').value;
 
-    if (!nombre || !hora_inicio||!estado) {
+    if (!nombre || !hora_inicio||!tipo_cita) {
         alert('Por favor, complete todos los campos.');
         return;
     }
 
     let hora_final = sumarUnaHora(hora_inicio);
 
-    // Inicializamos cita_detallada , detalles extras de las citas
+    //detalles citas
 
     let cita_detallada;
 
 switch(tipo_cita.toLowerCase()) {
     case 'manicure':
-        cita_detallada = document.getElementById('estadoM')?.value || null;
+        cita_detallada = document.getElementById('estadoM ' || 'estadom')?.value || null;
         break;
     case 'pedicure':
-        cita_detallada = document.getElementById('estadoP')?.value || null;
+        cita_detallada = document.getElementById('estadoP'|| 'estadop')?.value || null;
         break;
     case 'retiro':
-        cita_detallada = document.getElementById('estadoR')?.value || null;
+        cita_detallada = document.getElementById('estadoR'|| 'estador')?.value || null;
         break;
     case 'aplicacion':
-        cita_detallada = document.getElementById('estadoA')?.value || null;
+        cita_detallada = document.getElementById('estadoA'|| 'estadoa')?.value || null;
         break;
     default:
         cita_detallada = null;
@@ -68,7 +70,6 @@ switch(tipo_cita.toLowerCase()) {
     }
 });
 
-
 //Funcion para cargar las citas
 async function cargarCitas() {
     try {
@@ -84,7 +85,7 @@ async function cargarCitas() {
     }
 }
 
-// Función para mostrar las citas en la tabla
+//Mostrar las citas
 function renderCitas(citas) {
     appointmentsTableBody.innerHTML = '';
 
@@ -135,8 +136,6 @@ flatpickr("#timepicker", {
     opciones.forEach(opcion => {
         const div = document.getElementById(opcion);
         const select = document.getElementById('estado' + (opcion === 'aplicacion' ? 'A' : opcion.charAt(0).toUpperCase() + opcion.slice(1).slice(1)));
-        // Esta línea puede adaptarse para cada id correcto
-
         if (opcion === estado) {
             div.style.display = 'block';
             if (select) select.disabled = false;
