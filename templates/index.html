@@ -6,7 +6,7 @@
     <meta name="description" content="Glam Nails Studio - Tu espacio de belleza y cuidado de uñas">
     <title>Glam Nails Studio</title>
 
-    <icon href="https://glamnailshmo.com/favicon.png" type="image/x-icon"></icon>
+    <link rel="icon" href="https://glamnailshmo.com/favicon.png" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/staticc/css/styles.css">
+    <link rel="stylesheet" href="/staticc/styles.css">
 </head>
 <body>
 <header class="main-header">
@@ -30,9 +30,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="" class="active">Inicio</a></li>
-                <li><a href="/servicios">Servicios</a></li>
-                <li><a href="/galeria">Galería</a></li>
+                <li><a href="/index.html" class="active">Inicio</a></li>
+                <li><a href="/servicios.html">Servicios</a></li>
+                <li><a href="/galeria.html">Galería</a></li>
             </ul>
         </nav>
     </div>
@@ -43,7 +43,9 @@
         <section class="hero">
             <h2>
                 <img src="/staticc/2d88e466-002f-4ffd-b9d4-dbcd2477f898.jpg"
-                     alt="fotoglam" style="width: 1350px;height:auto;border-radius: 5%">
+                     alt="fotoglam"
+                     style="width: 1350px;height:auto;border-radius: 5%"
+                     onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1400&q=80';">
             </h2>
         </section>
 
@@ -210,6 +212,6 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
-<script src="/staticc/js/script.js"></script>
+<script src="/staticc/script.js"></script>
 </body>
 </html>
