@@ -58,10 +58,6 @@ switch(tipo_cita.toLowerCase()) {
 
         const data = await response.json();
 
-        if (!response.ok) {
-            throw new Error(data.error || 'Error al agregar la cita');
-        }
-
         await cargarCitas();
         appointmentForm.reset();
     } catch (error) {
